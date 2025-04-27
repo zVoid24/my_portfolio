@@ -14,7 +14,7 @@
     transition: background-color 0.5s, color 0.5s;
   }
   
-  /* Updated Theme Colors */
+  /* Theme Colors */
   :root {
     --bg-color: #F9FAFB; /* Soft off-white */
     --text-color: #2D3748; /* Dark slate */
@@ -110,7 +110,7 @@
     transform: translateY(20px);
     transition: opacity 0.6s ease-out, transform 0.6s ease-out;
     padding: 5rem 2rem;
-    max-width: 1100px; /* Wider for a professional look */
+    max-width: 1100px;
     margin: auto;
   }
   
@@ -148,6 +148,28 @@
     opacity: 0.9;
   }
   
+  /* Profile Picture in About Section */
+  .profile-pic {
+    display: block;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0 auto 2rem;
+    border: 4px solid var(--accent-color);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  
+  .profile-pic:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+  }
+  
+  body.dark-mode .profile-pic {
+    border-color: var(--accent-color);
+  }
+  
   /* Skills */
   .skills-list {
     list-style-type: none;
@@ -173,6 +195,55 @@
     background: var(--nav-bg);
   }
   
+  /* Experience, Education, Achievements, Profiles */
+  .experience-list, .education-list, .achievements-list, .profiles-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+  
+  .experience, .education, .achievement, .profile {
+    background: #fff;
+    color: #333;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  
+  body.dark-mode .experience, body.dark-mode .education, body.dark-mode .achievement, body.dark-mode .profile {
+    background: #2A3555;
+    color: #D1D5DB;
+  }
+  
+  .experience:hover, .education:hover, .achievement:hover, .profile:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+  }
+  
+  .experience h3, .education h3, .achievement h3, .profile h attribu {
+    font-size: 1.5rem;
+    color: var(--accent-color);
+    margin-bottom: 0.5rem;
+  }
+  
+  .experience p, .education p, .achievement p, .profile p {
+    font-size: 1rem;
+    opacity: 0.8;
+  }
+  
+  .profile a {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+  }
+  
+  .profile a:hover {
+    color: var(--btn-bg);
+  }
+  
   /* Project Cards */
   .project-list {
     display: grid;
@@ -188,82 +259,6 @@
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
     text-align: center;
     transition: transform 0.3s, box-shadow 0.3s;
-  }
-
-  /* Profile Picture in About Section */
-.profile-pic {
-    display: block;
-    width: 150px; /* Adjust size as needed */
-    height: 150px;
-    border-radius: 50%; /* Circular shape */
-    object-fit: cover; /* Ensure the image fits nicely */
-    margin: 0 auto 2rem; /* Center the image with spacing below */
-    border: 4px solid var(--accent-color); /* Border to match the theme */
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-    transition: transform 0.3s, box-shadow 0.3s;
-  }
-  
-  .profile-pic:hover {
-    transform: scale(1.05); /* Slight zoom on hover */
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
-  }
-  
-  /* Adjust for dark mode */
-  body.dark-mode .profile-pic {
-    border-color: var(--accent-color); /* Ensure the border color updates in dark mode */
-  }
-  
-  /* Responsive */
-  @media (max-width: 600px) {
-    .profile-pic {
-      width: 120px;
-      height: 120px;
-      margin-bottom: 1.5rem;
-    }
-  }
-  /* Footer */
-footer {
-    text-align: center;
-    padding: 3rem 1rem;
-    background: var(--accent-color);
-    color: white;
-    margin-top: 4rem;
-    font-size: 1rem;
-    box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.1);
-  }
-  
-  footer .social-links {
-    margin-top: 1.5rem;
-    display: flex;
-    justify-content: center;
-    gap: 15px; /* Reduced from 25px for a tighter layout */
-  }
-  
-  footer .social-links a {
-    text-decoration: none;
-  }
-  
-  footer .social-logo {
-    width: 28px; /* Reduced from 35px for better proportion */
-    height: 28px;
-    transition: opacity 0.3s, transform 0.3s;
-  }
-  
-  footer .social-logo:hover {
-    opacity: 0.8;
-    transform: scale(1.1); /* Still scales on hover, but starting from a smaller base */
-  }
-  
-  /* Responsive */
-  @media (max-width: 600px) {
-    footer .social-logo {
-      width: 24px; /* Further reduced for smaller screens */
-      height: 24px;
-    }
-  
-    footer .social-links {
-      gap: 12px; /* Slightly smaller gap on mobile */
-    }
   }
   
   body.dark-mode .project {
@@ -324,19 +319,8 @@ footer {
     color: var(--btn-bg);
   }
   
-  /* Footer */
-  footer {
-    text-align: center;
-    padding: 3rem 1rem;
-    background: var(--accent-color);
-    color: white;
-    margin-top: 4rem;
-    font-size: 1rem;
-    box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.1);
-  }
-  
   /* Contact Section Social Links */
-#contact .social-links {
+  #contact .social-links {
     margin-top: 2rem;
     display: flex;
     justify-content: center;
@@ -351,7 +335,7 @@ footer {
     width: 35px;
     height: 35px;
     transition: opacity 0.3s, transform 0.3s;
-    filter: brightness(0.9); /* Slightly muted for light background */
+    filter: brightness(0.9);
   }
   
   #contact .social-logo:hover {
@@ -360,9 +344,41 @@ footer {
     filter: brightness(1);
   }
   
-  /* Adjust logo brightness for dark mode */
   body.dark-mode #contact .social-logo {
-    filter: brightness(1); /* Full brightness in dark mode */
+    filter: brightness(1);
+  }
+  
+  /* Footer */
+  footer {
+    text-align: center;
+    padding: 3rem 1rem;
+    background: var(--accent-color);
+    color: white;
+    margin-top: 4rem;
+    font-size: 1rem;
+    box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  footer .social-links {
+    margin-top: 1.5rem;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+  }
+  
+  footer .social-links a {
+    text-decoration: none;
+  }
+  
+  footer .social-logo {
+    width: 28px;
+    height: 28px;
+    transition: opacity 0.3s, transform 0.3s;
+  }
+  
+  footer .social-logo:hover {
+    opacity: 0.8;
+    transform: scale(1.1);
   }
   
   /* Scroll to Top Button */
@@ -403,7 +419,7 @@ footer {
   }
   
   .btn:hover {
-    background-color: #B35252; /* Deeper coral */
+    background-color: #B35252;
     transform: translateY(-3px);
   }
   
@@ -431,12 +447,22 @@ footer {
       font-size: 2rem;
     }
   
+    .profile-pic {
+      width: 120px;
+      height: 120px;
+      margin-bottom: 1.5rem;
+    }
+  
     .project {
       padding: 2rem;
     }
   
     footer .social-logo {
-      width: 30px;
-      height: 30px;
+      width: 24px;
+      height: 24px;
+    }
+  
+    footer .social-links {
+      gap: 12px;
     }
   }

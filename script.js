@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function type() {
     if (index >= texts.length) index = 0;
     currentText = texts[index];
-    
+  
     tagline.textContent = isDeleting 
       ? currentText.substring(0, charIndex--) 
       : currentText.substring(0, charIndex++);
