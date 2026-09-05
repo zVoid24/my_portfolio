@@ -1,18 +1,12 @@
 import { motion } from "framer-motion";
 import { Mail, MapPin, Phone } from "lucide-react";
+import SectionHeading from "./SectionHeading";
 
 const ContactSection = () => {
   return (
     <section id="contact" className="py-24">
       <div className="container mx-auto px-6 text-center max-w-2xl">
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-3xl font-heading font-bold mb-4"
-        >
-          <span className="text-gradient">Get In Touch</span>
-        </motion.h2>
+        <SectionHeading number="06." title="Get In Touch" centered className="mb-4" />
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -45,17 +39,17 @@ const ContactSection = () => {
           </a>
         </motion.div>
 
-        {/* <motion.a
+        <motion.a
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.3 }}
           href="mailto:rabbi1272@gmail.com"
-          className="inline-flex items-center gap-2 px-8 py-3 rounded-lg border border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300 font-heading font-medium"
+          className="btn-primary"
         >
           <Mail size={18} />
           Say Hello
-        </motion.a> */}
+        </motion.a>
 
         <motion.p
           initial={{ opacity: 0 }}

@@ -1,3 +1,4 @@
+import BackgroundFX from "@/components/BackgroundFX";
 import MouseGlow from "@/components/MouseGlow";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
@@ -11,6 +12,7 @@ import ContactSection from "@/components/ContactSection";
 const Index = () => {
   return (
     <div className="relative min-h-screen">
+      <BackgroundFX />
       <MouseGlow />
       <Navbar />
       <HeroSection />

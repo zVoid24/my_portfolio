@@ -111,4 +111,19 @@
   .hover-glow:hover {
     box-shadow: 0 0 30px hsl(185 80% 50% / 0.2);
   }
+
+  .bg-grid {
+    background-image:
+      linear-gradient(hsl(var(--border) / 0.7) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--border) / 0.7) 1px, transparent 1px);
+    background-size: 44px 44px;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-primary text-primary-foreground font-heading font-medium text-sm transition-all duration-300 hover:shadow-[0_0_30px_hsl(185_80%_50%/0.4)] hover:-translate-y-0.5;
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center gap-2 px-6 py-3 rounded-lg border border-border text-foreground font-heading font-medium text-sm transition-all duration-300 hover:border-primary/50 hover:bg-primary/5 hover:-translate-y-0.5;
+  }
 }

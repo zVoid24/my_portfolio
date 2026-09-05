@@ -1,19 +1,12 @@
 import { motion } from "framer-motion";
 import { ExternalLink } from "lucide-react";
+import SectionHeading from "./SectionHeading";
 
 const PublicationSection = () => {
   return (
     <section className="py-24">
       <div className="container mx-auto px-6">
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-3xl font-heading font-bold mb-12 flex items-center gap-4"
-        >
-          <span className="text-gradient">Publication</span>
-          <span className="h-px flex-1 bg-border" />
-        </motion.h2>
+        <SectionHeading number="04." title="Publication" />
 
         <motion.div
           initial={{ opacity: 0, y: 30 }}

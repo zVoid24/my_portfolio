@@ -1,10 +1,13 @@
 import { motion } from "framer-motion";
+import SectionHeading from "./SectionHeading";
 
 const experiences = [
   {
     role: "Junior Flutter Developer",
     company: "Scube Technologies Limited",
+    initials: "ST",
     period: "Feb 2026 — Present",
+    current: true,
     points: [
       "Developing and maintaining Flutter mobile applications for clients.",
       "Collaborating with cross-functional teams to deliver high-quality mobile solutions.",
@@ -13,7 +16,9 @@ const experiences = [
   {
     role: "Mobile Application Developer",
     company: "GMGI Solutions LTD",
+    initials: "GS",
     period: "Aug 2025 — Dec 2025",
+    current: false,
     points: [
       "Built production mobile and backend components for mapping and offline-first field workflows.",
       "Developed offline data collection solutions used in partner programs (BRAC, MORU).",
@@ -23,7 +28,9 @@ const experiences = [
   {
     role: "Mobile Application Developer Intern",
     company: "GMGI Solutions LTD",
+    initials: "GS",
     period: "May 2025 — Jul 2025",
+    current: false,
     points: [
       "Developed an offline data collection app (Flutter) with clean, modular architecture.",
     ],
@@ -31,7 +38,9 @@ const experiences = [
   {
     role: "Prefect — Programming & Problem Solving Lab",
     company: "Daffodil International University",
+    initials: "DIU",
     period: "Jan 2023 — Dec 2024",
+    current: false,
     points: [
       "Assisted instructors in lab sessions; created contest problems and assessments.",
       "Mentored students in competitive programming and problem-solving.",
@@ -43,15 +52,7 @@ const ExperienceSection = () => {
   return (
     <section id="experience" className="py-24">
       <div className="container mx-auto px-6">
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-3xl font-heading font-bold mb-16 flex items-center gap-4"
-        >
-          <span className="text-gradient">Experience</span>
-          <span className="h-px flex-1 bg-border" />
-        </motion.h2>
+        <SectionHeading number="02." title="Experience" />
 
         <div className="relative">
           {/* Timeline line */}
@@ -71,16 +72,30 @@ const ExperienceSection = () => {
                 <div className="absolute left-3 top-2 w-3 h-3 rounded-full bg-primary hidden md:block shadow-[0_0_10px_hsl(185_80%_50%/0.5)]" />
 
                 <div className="glass rounded-xl p-6 hover-glow">
-                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2">
-                    <h3 className="text-lg font-heading font-semibold text-foreground">
-                      {exp.role}
-                    </h3>
-                    <span className="text-sm font-mono text-primary">
-                      {exp.period}
-                    </span>
+                  <div className="flex items-start gap-4 mb-2">
+                    <div className="w-10 h-10 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center text-xs font-heading font-bold text-primary shrink-0">
+                      {exp.initials}
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
+                        <h3 className="text-lg font-heading font-semibold text-foreground">
+                          {exp.role}
+                        </h3>
+                        {exp.current ? (
+                          <span className="inline-flex items-center gap-1.5 text-xs font-mono text-emerald-500 shrink-0">
+                            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                            {exp.period}
+                          </span>
+                        ) : (
+                          <span className="text-sm font-mono text-primary shrink-0">
+                            {exp.period}
+                          </span>
+                        )}
+                      </div>
+                      <p className="text-sm text-primary/80">{exp.company}</p>
+                    </div>
                   </div>
-                  <p className="text-sm text-primary/80 mb-3">{exp.company}</p>
-                  <ul className="space-y-2">
+                  <ul className="space-y-2 pl-14">
                     {exp.points.map((p, j) => (
                       <li
                         key={j}

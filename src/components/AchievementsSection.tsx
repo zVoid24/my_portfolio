@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Award, Trophy, Star } from "lucide-react";
+import SectionHeading from "./SectionHeading";
 
 const achievements = [
   { icon: Trophy, text: "2nd Runners-up — Unlock the Algorithm (Preliminary Round), Fall 2023" },
@@ -8,24 +9,16 @@ const achievements = [
 ];
 
 const profiles = [
-  { name: "Codeforces", url: "https://codeforces.com/profile/zvoid81", handle: "zvoid81" },
-  { name: "LeetCode", url: "https://leetcode.com/u/zVoid/", handle: "zVoid" },
-  { name: "VJudge", url: "https://vjudge.net/user/zVoid", handle: "zVoid" },
+  { name: "Codeforces", url: "https://codeforces.com/profile/zvoid81", handle: "zvoid81", ring: "border-l-red-400/60" },
+  { name: "LeetCode", url: "https://leetcode.com/u/zVoid/", handle: "zVoid", ring: "border-l-amber-400/60" },
+  { name: "VJudge", url: "https://vjudge.net/user/zVoid", handle: "zVoid", ring: "border-l-sky-400/60" },
 ];
 
 const AchievementsSection = () => {
   return (
     <section className="py-24">
       <div className="container mx-auto px-6">
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-3xl font-heading font-bold mb-12 flex items-center gap-4"
-        >
-          <span className="text-gradient">Achievements & CP</span>
-          <span className="h-px flex-1 bg-border" />
-        </motion.h2>
+        <SectionHeading number="05." title="Achievements & CP" />
 
         <div className="grid md:grid-cols-2 gap-8">
           <motion.div
@@ -64,7 +57,7 @@ const AchievementsSection = () => {
                   href={p.url}
                   target="_blank"
                   rel="noreferrer"
-                  className="flex items-center justify-between p-3 rounded-lg bg-secondary/50 hover:bg-primary/10 transition-colors group"
+                  className={`flex items-center justify-between p-3 rounded-lg bg-secondary/50 border-l-2 ${p.ring} hover:bg-primary/10 transition-colors group`}
                 >
                   <span className="text-sm text-foreground">{p.name}</span>
                   <span className="text-xs font-mono text-primary group-hover:underline">

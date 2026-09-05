@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import SectionHeading from "./SectionHeading";
 
 interface Skill {
   name: string;
@@ -47,15 +48,7 @@ const SkillsSection = () => {
   return (
     <section id="skills" className="py-24">
       <div className="container mx-auto px-6">
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-4xl font-heading font-bold mb-16 flex items-center gap-4"
-        >
-          <span className="text-gradient">Tech Stack.</span>
-          <span className="h-px flex-1 bg-border" />
-        </motion.h2>
+        <SectionHeading number="01." title="Tech Stack" />
 
         <div className="space-y-16">
           {skillCategories.map((cat, ci) => (
