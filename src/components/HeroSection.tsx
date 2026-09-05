@@ -4,7 +4,7 @@ import HeroCodePanel from "./HeroCodePanel";
 
 const stats = [
   { value: "1+", label: "Years Experience" },
-  { value: "4+", label: "Projects Shipped" },
+  { value: "10+", label: "Projects Shipped" },
   { value: "1036", label: "Codeforces Rating" },
   { value: "1", label: "IEEE Publication" },
 ];
@@ -41,7 +41,7 @@ const HeroSection = () => {
               transition={{ delay: 0.4 }}
               className="text-3xl md:text-5xl font-heading font-bold text-muted-foreground mb-6"
             >
-              I build <span className="text-gradient">mobile experiences.</span>
+              I build <span className="text-gradient">software, end to end.</span>
             </motion.h2>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -50,9 +50,9 @@ const HeroSection = () => {
               className="text-muted-foreground max-w-2xl text-lg leading-relaxed mb-8 space-y-4"
             >
               <p>
-                Mobile Application Developer specializing in <span className="text-primary/90 font-medium">Flutter</span> with backend
-                experience in <span className="text-primary/90 font-medium">Golang</span> & <span className="text-primary/90 font-medium">Node.js</span>. I craft performant, offline-first
-                apps using Provider state management and modern database solutions like <span className="text-primary/90 font-medium">PostgreSQL</span> , <span className="text-primary/90 font-medium">MongoDB</span>, <span className="text-primary/90 font-medium">MySQL</span> and <span className="text-primary/90 font-medium">Firebase</span>.
+                Software Engineer specializing in <span className="text-primary/90 font-medium">Flutter</span> for mobile, with backend
+                experience in <span className="text-primary/90 font-medium">Golang</span> & <span className="text-primary/90 font-medium">Node.js</span>, and systems work on <span className="text-primary/90 font-medium">Linux</span>. I build performant, offline-first
+                apps using Provider state management and modern database solutions like <span className="text-primary/90 font-medium">PostgreSQL</span> , <span className="text-primary/90 font-medium">MongoDB</span>, <span className="text-primary/90 font-medium">MySQL</span> and <span className="text-primary/90 font-medium">Firebase</span> — and maintain standalone 24/7 Linux deployments with kiosk setups, IPC, and Modbus integrations.
               </p>
               <p>
                 Beyond development, I have a background in competitive programming and have
@@ -92,7 +92,7 @@ const HeroSection = () => {
                   href="https://github.com/zVoid24"
                   target="_blank"
                   rel="noreferrer"
-                  className="w-11 h-11 rounded-lg bg-secondary/20 border border-border/40 flex items-center justify-center text-muted-foreground/70 hover:bg-primary/10 hover:border-primary/40 hover:text-primary hover:shadow-[0_0_15px_rgba(20,184,166,0.15)] transition-all duration-300"
+                  className="hover-shine w-11 h-11 rounded-lg bg-secondary/20 border border-border/40 flex items-center justify-center text-muted-foreground/70 hover:bg-primary/10 hover:border-primary/40 hover:text-primary transition-all duration-300"
                 >
                   <Github size={20} />
                 </a>
@@ -100,13 +100,13 @@ const HeroSection = () => {
                   href="https://www.linkedin.com/in/zahidul-islam-rabbi-b77724260"
                   target="_blank"
                   rel="noreferrer"
-                  className="w-11 h-11 rounded-lg bg-secondary/20 border border-border/40 flex items-center justify-center text-muted-foreground/70 hover:bg-primary/10 hover:border-primary/40 hover:text-primary hover:shadow-[0_0_15px_rgba(20,184,166,0.15)] transition-all duration-300"
+                  className="hover-shine w-11 h-11 rounded-lg bg-secondary/20 border border-border/40 flex items-center justify-center text-muted-foreground/70 hover:bg-primary/10 hover:border-primary/40 hover:text-primary transition-all duration-300"
                 >
                   <Linkedin size={20} />
                 </a>
                 <a
                   href="mailto:rabbi1272@gmail.com"
-                  className="w-11 h-11 rounded-lg bg-secondary/20 border border-border/40 flex items-center justify-center text-muted-foreground/70 hover:bg-primary/10 hover:border-primary/40 hover:text-primary hover:shadow-[0_0_15px_rgba(20,184,166,0.15)] transition-all duration-300"
+                  className="hover-shine w-11 h-11 rounded-lg bg-secondary/20 border border-border/40 flex items-center justify-center text-muted-foreground/70 hover:bg-primary/10 hover:border-primary/40 hover:text-primary transition-all duration-300"
                 >
                   <Mail size={20} />
                 </a>

@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Github } from "lucide-react";
 import SectionHeading from "./SectionHeading";
+import SwiftTransitCollage from "./SwiftTransitCollage";
 
 const projects = [
   {
@@ -17,6 +18,7 @@ const projects = [
       "Minimal online grocery store app with customer care live chat and fast product search.",
     tech: ["Flutter", "Firebase"],
     github: "https://github.com/zVoid24/online_shop_flutter_bloc",
+    cover: ["/projects/fresh-basket/cover.jpg"],
   },
   {
     title: "Zyra — Rescue/Defense Robot",
@@ -24,6 +26,7 @@ const projects = [
       "IoT robot prototype + mobile app to visualize sensor-driven outputs and mapping-style view.",
     tech: ["C++", "Arduino", "ESP32", "Flutter", "Firebase"],
     github: "https://github.com/zVoid24/Zyra---Robot",
+    cover: ["/projects/zyra/side.jpg", "/projects/zyra/top.jpg"],
   },
   {
     title: "Shark Bot",
@@ -75,32 +78,15 @@ const ProjectsSection = () => {
               href={featuredProject.github}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-2 w-fit px-4 py-2.5 rounded-lg bg-secondary/30 border border-border/40 text-sm text-muted-foreground hover:bg-primary/10 hover:border-primary/40 hover:text-primary transition-all duration-300"
+              className="hover-shine inline-flex items-center gap-2 w-fit px-4 py-2.5 rounded-lg bg-secondary/30 border border-border/40 text-sm text-muted-foreground hover:bg-primary/10 hover:border-primary/40 hover:text-primary transition-all duration-300"
             >
               <Github size={16} />
               View on GitHub
             </a>
           </div>
 
-          <div className="relative bg-secondary/10 p-6 md:p-10 flex items-center border-t md:border-t-0 md:border-l border-border/40">
-            <div className="w-full rounded-lg border border-border/50 bg-background/60 overflow-hidden shadow-xl">
-              <div className="flex items-center gap-1.5 px-3 py-2.5 border-b border-border/40 bg-secondary/30">
-                <span className="w-2.5 h-2.5 rounded-full bg-red-400/70" />
-                <span className="w-2.5 h-2.5 rounded-full bg-yellow-400/70" />
-                <span className="w-2.5 h-2.5 rounded-full bg-emerald-400/70" />
-              </div>
-              <div className="p-5 space-y-3">
-                <div className="h-3 w-2/3 rounded-full bg-primary/30" />
-                <div className="h-3 w-full rounded-full bg-border/70" />
-                <div className="h-3 w-5/6 rounded-full bg-border/70" />
-                <div className="grid grid-cols-3 gap-3 pt-2">
-                  <div className="h-16 rounded-lg bg-primary/10 border border-primary/10" />
-                  <div className="h-16 rounded-lg bg-primary/10 border border-primary/10" />
-                  <div className="h-16 rounded-lg bg-primary/10 border border-primary/10" />
-                </div>
-                <div className="h-3 w-1/2 rounded-full bg-border/70" />
-              </div>
-            </div>
+          <div className="relative bg-secondary/10 p-3 flex items-center border-t md:border-t-0 md:border-l border-border/40">
+            <SwiftTransitCollage />
           </div>
         </motion.div>
 
@@ -112,39 +98,53 @@ const ProjectsSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1, type: "spring", stiffness: 400, damping: 20 }}
-              whileHover={{ y: -8 }}
-              className="glass rounded-2xl p-8 flex flex-col justify-between hover-glow group min-h-[320px] transition-all duration-75"
+              className="glass rounded-2xl overflow-hidden flex flex-col hover-glow group transition-all duration-75"
             >
-              <div>
-                <div className="flex items-center justify-between mb-4">
-                  <span className="font-mono text-xs text-muted-foreground/50">
-                    0{i + 2}
-                  </span>
-                  <a
-                    href={proj.github}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="w-10 h-10 rounded-lg bg-secondary/20 border border-border/40 flex items-center justify-center text-muted-foreground/70 hover:bg-primary/10 hover:border-primary/40 hover:text-primary hover:shadow-[0_0_15px_rgba(20,184,166,0.15)] transition-all duration-300"
-                  >
-                    <Github size={20} />
-                  </a>
+              {proj.cover && (
+                <div className="aspect-[127/43] flex gap-px bg-secondary/20 overflow-hidden shrink-0">
+                  {proj.cover.map((src) => (
+                    <img
+                      key={src}
+                      src={src}
+                      alt={`${proj.title} preview`}
+                      className="flex-1 min-w-0 h-full object-cover"
+                      loading="lazy"
+                    />
+                  ))}
                 </div>
-                <h3 className="text-lg font-heading font-semibold text-foreground mb-2 group-hover:text-primary transition-colors">
-                  {proj.title}
-                </h3>
-                <p className="text-sm text-muted-foreground leading-relaxed mb-4">
-                  {proj.description}
-                </p>
-              </div>
-              <div className="flex flex-wrap gap-2">
-                {proj.tech.map((t) => (
-                  <span
-                    key={t}
-                    className="text-xs font-mono text-primary/80 bg-primary/5 px-2 py-1 rounded"
-                  >
-                    {t}
-                  </span>
-                ))}
+              )}
+              <div className="p-8 flex flex-col justify-between flex-1 min-h-[236px]">
+                <div>
+                  <div className="flex items-center justify-between mb-4">
+                    <span className="font-mono text-xs text-muted-foreground/50">
+                      0{i + 2}
+                    </span>
+                    <a
+                      href={proj.github}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="hover-shine w-10 h-10 rounded-lg bg-secondary/20 border border-border/40 flex items-center justify-center text-muted-foreground/70 hover:bg-primary/10 hover:border-primary/40 hover:text-primary transition-all duration-300"
+                    >
+                      <Github size={20} />
+                    </a>
+                  </div>
+                  <h3 className="text-lg font-heading font-semibold text-foreground mb-2 group-hover:text-primary transition-colors">
+                    {proj.title}
+                  </h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed mb-4">
+                    {proj.description}
+                  </p>
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  {proj.tech.map((t) => (
+                    <span
+                      key={t}
+                      className="text-xs font-mono text-primary/80 bg-primary/5 px-2 py-1 rounded"
+                    >
+                      {t}
+                    </span>
+                  ))}
+                </div>
               </div>
             </motion.div>
           ))}

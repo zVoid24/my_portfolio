@@ -105,11 +105,44 @@
     to { opacity: 1; transform: translateY(0); }
   }
 
+  .hover-glow,
+  .hover-shine,
+  .btn-primary,
+  .btn-outline {
+    position: relative;
+    overflow: hidden;
+  }
+  .hover-glow::before,
+  .hover-shine::before,
+  .btn-primary::before,
+  .btn-outline::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      115deg,
+      transparent 30%,
+      hsl(0 0% 100% / 0.08) 45%,
+      hsl(185 80% 75% / 0.22) 50%,
+      hsl(0 0% 100% / 0.08) 55%,
+      transparent 70%
+    );
+    transform: translateX(-150%);
+    transition: transform 0.85s ease;
+    pointer-events: none;
+    z-index: 1;
+  }
+  .hover-glow:hover::before,
+  .hover-shine:hover::before,
+  .btn-primary:hover::before,
+  .btn-outline:hover::before {
+    transform: translateX(150%);
+  }
   .hover-glow {
-    @apply transition-all duration-75;
+    transition: box-shadow 0.3s ease;
   }
   .hover-glow:hover {
-    box-shadow: 0 0 30px hsl(185 80% 50% / 0.2);
+    box-shadow: 0 0 24px hsl(185 80% 50% / 0.12);
   }
 
   .bg-grid {
@@ -120,10 +153,10 @@
   }
 
   .btn-primary {
-    @apply inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-primary text-primary-foreground font-heading font-medium text-sm transition-all duration-300 hover:shadow-[0_0_30px_hsl(185_80%_50%/0.4)] hover:-translate-y-0.5;
+    @apply inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-primary text-primary-foreground font-heading font-medium text-sm transition-all duration-300 hover:shadow-[0_0_30px_hsl(185_80%_50%/0.4)];
   }
 
   .btn-outline {
-    @apply inline-flex items-center gap-2 px-6 py-3 rounded-lg border border-border text-foreground font-heading font-medium text-sm transition-all duration-300 hover:border-primary/50 hover:bg-primary/5 hover:-translate-y-0.5;
+    @apply inline-flex items-center gap-2 px-6 py-3 rounded-lg border border-border text-foreground font-heading font-medium text-sm transition-all duration-300 hover:border-primary/50 hover:bg-primary/5;
   }
 }
